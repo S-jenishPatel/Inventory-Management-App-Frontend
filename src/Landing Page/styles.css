@@ -1,6 +1,6 @@
 .landing-container {
   --loginPrimary: #26028a;
-  --loginSecondary: #5d27f26c;
+  --loginSecondary: #baa4f9;
   --landingPrimary: white;
 
   display: flex;
@@ -41,20 +41,22 @@
   padding: 20px 40px;
 }
 
-.landing-btn-container {
+/* Login Page CSS */
+
+.login-page {
   background-color: var(--landingPrimary);
   color: var(--loginPrimary);
 }
-.landing-btn-container h2 {
+.login-page h2 {
   text-align: center;
   letter-spacing: 1px;
 }
-.landing-btn-container form {
+.login-page div {
   display: flex;
   flex-direction: column;
   padding-inline: 6rem;
 }
-.landing-btn-container label {
+.login-page label {
   font-size: 14;
   font-weight: 500;
 }
@@ -75,7 +77,7 @@
   border: 1px solid var(--loginPrimary);
 }
 
-.landing-btn-container input[type="submit"] {
+.login-submit {
   font-size: 16px;
   padding: 8px;
   background-color: var(--loginPrimary);
@@ -85,23 +87,106 @@
   cursor: pointer;
   margin-block: 6px;
 }
-.landing-btn-container input[type="submit"]:focus {
+.login-submit:focus {
   transform: scale(0.99);
 }
 
-.landing-btn-container a {
+.login-page span {
   width: fit-content;
   font-size: 14px;
-  color: var(--loginPrimary);
 }
-.landing-btn-container a:hover {
+.login-page span:hover {
   color: var(--loginSecondary);
+  cursor: pointer;
 }
 
-.landing-btn-container p {
+.login-page p {
   border-top: 1px solid var(--loginSecondary);
   padding-top: 14px;
 }
-.landing-btn-container p a {
+.login-page p span {
   font-style: italic;
+}
+
+/* Signup Page CSS */
+
+.signup-page {
+  background-color: var(--landingPrimary);
+  color: var(--loginPrimary);
+}
+.signup-page h2 {
+  text-align: center;
+  letter-spacing: 1px;
+}
+.signup-page > div {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 6rem;
+}
+.signup-input {
+  background-color: var(--loginSecondary);
+  color: var(--loginPrimary);
+
+  margin-bottom: 12px;
+  font-size: 16px;
+  padding: 8px;
+
+  border: 1px solid var(--landingPrimary);
+  border-radius: 6px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.signup-input:focus {
+  outline: none;
+  border: 1px solid var(--loginPrimary);
+}
+.signup-input::placeholder {
+  color: var(--landingPrimary);
+  opacity: 0.6;
+}
+
+#signup-image-uploader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+#signup-image-uploader label {
+  text-wrap: nowrap;
+}
+#signup-image-uploader input[type="file"]::-webkit-file-upload-button {
+  color: var(--loginPrimary);
+  background-color: var(--loginSecondary);
+  padding: 8px;
+
+  border: 1px solid var(--landingPrimary);
+  border-radius: 6px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.signup-submit {
+  font-size: 16px;
+  padding: 8px;
+  background-color: var(--loginPrimary);
+  color: var(--landingPrimary);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+.signup-submit:focus {
+  transform: scale(0.99);
+}
+
+.signup-page p {
+  border-top: 1px solid var(--loginSecondary);
+  padding-top: 14px;
+}
+.signup-page span {
+  font-style: italic;
+  font-size: 14px;
+}
+.signup-page span:hover {
+  color: var(--loginSecondary);
+  cursor: pointer;
 }

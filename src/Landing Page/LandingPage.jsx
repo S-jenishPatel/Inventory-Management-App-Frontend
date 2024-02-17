@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import Login from "./Login";
+import Signup from "./Signup";
 import "./styles.css";
+
 function LandingPage() {
+  const [showLogin, setShowLogin] = useState(true);
   return (
     <div className="landing-container">
       <div className="landing-wrapper">
@@ -10,27 +14,12 @@ function LandingPage() {
             Inventory system to control and manage products in the warehouse in
             real time and integrated to make it easier to develop your business
           </p>
-          <div></div>
-          <div></div>
         </div>
-        <div className="landing-btn-container">
-          <h2>Welcome</h2>
-          <form action="">
-            <label htmlFor="username">Enter Username:</label>
-            <input type="text" name="username" className="login-input" />
-
-            <label htmlFor="password">Enter Password:</label>
-            <input type="password" name="password" className="login-input" />
-
-            <input type="submit" className="login-submit" value="Login" />
-
-            <a href="">&nbsp; Forgot Passwsord?</a>
-
-            <p>
-              Don't have an account? <a href="">Signup</a>
-            </p>
-          </form>
-        </div>
+        {showLogin ? (
+          <Login setShowLogin={setShowLogin} />
+        ) : (
+          <Signup setShowLogin={setShowLogin} />
+        )}
       </div>
     </div>
   );
