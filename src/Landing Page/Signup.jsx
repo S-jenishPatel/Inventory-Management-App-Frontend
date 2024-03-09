@@ -1,34 +1,55 @@
 import React, { useState } from "react";
 import Axios from "axios";
+import toast from "react-hot-toast";
+import warningImage from "../assets/warning.png";
 
 function Signup({ setShowLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState(undefined);
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [image, setImage] = useState();
-  const signupData = new FormData();
+
+  const [errorText, setErrorText] = useState("");
 
   const signup = async () => {
-    signupData.append("username", username);
-    signupData.append("password", password);
-    signupData.append("email", email);
-    signupData.append("phoneNumber", phoneNumber);
-    signupData.append("image", image);
-
-    console.log(signupData);
-    const res = await Axios.post(
+    toast.remove();
+    const signupToast = toast.loading("Signing up ...", {
+      style: {
+        marginTop: "10px",
+        marginRight: "30px",
+        padding: "20px",
+      },
+    });
+    Axios.post(
       import.meta.env.VITE_API_URL + "/user/signup",
       {
-        body: signupData,
+        username,
+        password,
+        email,
+        phoneNumber,
+        image,
       },
       {
         headers: {
           "Content-Type": "multipart/form-data",
+          Accept: "application/json",
         },
       }
-    );
-    console.log(res);
+    )
+      .then((res) => {
+        toast.success("Signed up Successfully", {
+          id: signupToast,
+        });
+        console.log(res);
+      })
+      .catch((err) => {
+        toast.error("Sign up Failed", {
+          id: signupToast,
+        });
+        setErrorText(err.response?.data || err.message);
+        console.log(err);
+      });
   };
 
   return (
@@ -57,13 +78,13 @@ function Signup({ setShowLogin }) {
           type="password"
           className="signup-input"
           placeholder="Password"
-          //   value={password}
+          value={password}
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
         <input
-          type="text"
+          type="number"
           className="signup-input"
           placeholder="Mobile number"
           value={phoneNumber}
@@ -83,6 +104,14 @@ function Signup({ setShowLogin }) {
           />
         </div>
 
+        {/* Landing error text */}
+        {errorText ? (
+          <div id="landing-error">
+            <img src={warningImage} alt="Warning Image" />
+            <span>{errorText}</span>
+          </div>
+        ) : null}
+
         <input
           type="submit"
           className="signup-submit"
@@ -96,6 +125,7 @@ function Signup({ setShowLogin }) {
         <p>
           Already have an account?{" "}
           <span
+            className="landing-span"
             onClick={() => {
               setShowLogin(true);
             }}

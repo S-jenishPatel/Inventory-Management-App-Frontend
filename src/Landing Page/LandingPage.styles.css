@@ -33,12 +33,14 @@
   color: var(--landingPrimary);
 }
 .landing-div h1 {
-  letter-spacing: 2px;
+  margin-top: 32px;
+  letter-spacing: 1px;
 }
 .landing-div p {
+  font-size: 16px;
+  line-height: 20px;
   text-wrap: pretty;
-  font-size: 14px;
-  padding: 20px 40px;
+  padding: 20px 40px 0;
 }
 
 /* Login Page CSS */
@@ -85,17 +87,17 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  margin-block: 6px;
+  margin-block: 8px;
 }
 .login-submit:focus {
   transform: scale(0.99);
 }
 
-.login-page span {
+.landing-span {
   width: fit-content;
   font-size: 14px;
 }
-.login-page span:hover {
+.landing-span:hover {
   color: var(--loginSecondary);
   cursor: pointer;
 }
@@ -148,7 +150,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 6px;
+  margin-block: 12px;
 }
 #signup-image-uploader label {
   text-wrap: nowrap;
@@ -172,7 +174,7 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 .signup-submit:focus {
   transform: scale(0.99);
@@ -182,11 +184,19 @@
   border-top: 1px solid var(--loginSecondary);
   padding-top: 14px;
 }
-.signup-page span {
+.signup-page p span {
   font-style: italic;
-  font-size: 14px;
 }
-.signup-page span:hover {
-  color: var(--loginSecondary);
-  cursor: pointer;
+
+/* Landing error text in both login and signup */
+#landing-error {
+  color: red;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+#landing-error img {
+  height: 16px;
+  margin-inline: 4px;
 }

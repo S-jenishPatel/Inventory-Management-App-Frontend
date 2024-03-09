@@ -1,10 +1,12 @@
-import { useState } from "react";
-import "./App.css";
 import { Outlet } from "react-router-dom";
+import Menubar from "./Menubar/Menubar";
+
+import "./App.css";
 
 function App() {
   return (
     <>
+      <Menubar />
       <Outlet />
     </>
   );
