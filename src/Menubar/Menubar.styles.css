@@ -1,18 +1,20 @@
 .menubar {
   width: 20vw;
   height: 100vh;
+  background-color: var(--white);
   box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 .menubar-header {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 18px;
-  background-color: var(--blueP);
-  padding: 5px 0 5px 18px;
+  background-color: var(--bluePrimary);
+  padding: 5px 0 5px 32px;
 }
 .menubar-header img {
-  height: 56px;
+  height: 54px;
 }
 .menubar-header h3 {
   color: transparent;
@@ -22,5 +24,30 @@
     rgb(0, 183, 255),
     rgb(123, 0, 255)
   );
-  font-size: 24px;
+  font-size: 26px;
+}
+
+.menubar-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  margin-top: 18px;
+}
+.menubar-navlink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding-left: 30px;
+  font-size: 18px;
+  text-decoration: none;
+  color: var(--bluePrimary);
+  border-block: 1px solid var(--bluePrimary);
+}
+.menubar-navlink:hover {
+  background-color: var(--purpleSecondary);
+}
+.menubar-navlink img {
+  height: 34px;
 }

@@ -1,20 +1,16 @@
-.landing-container {
-  --loginPrimary: #26028a;
-  --loginSecondary: #baa4f9;
-  --landingPrimary: white;
+/* Landing Page CSS */
 
+.landing-container {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background-color: #eeeeee;
 
   height: 100vh;
   width: 100vw;
 }
 .landing-container a {
   text-decoration: none;
-  color: var(--loginPrimary);
+  color: var(--bluePrimary);
 }
 
 .landing-wrapper {
@@ -30,7 +26,7 @@
   background-repeat: no-repeat;
   background-position: center;
   text-align: center;
-  color: var(--landingPrimary);
+  color: var(--white);
 }
 .landing-div h1 {
   margin-top: 32px;
@@ -46,8 +42,8 @@
 /* Login Page CSS */
 
 .login-page {
-  background-color: var(--landingPrimary);
-  color: var(--loginPrimary);
+  background-color: var(--white);
+  color: var(--bluePrimary);
 }
 .login-page h2 {
   text-align: center;
@@ -64,26 +60,26 @@
 }
 
 .login-input {
-  background-color: var(--loginSecondary);
-  color: var(--loginPrimary);
+  background-color: var(--purpleSecondary);
+  color: var(--bluePrimary);
   font-size: 16px;
   padding: 8px;
   margin: 4px 0 16px;
 
-  border: 1px solid var(--landingPrimary);
+  border: 1px solid var(--white);
   border-radius: 6px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 .login-input:focus {
   outline: none;
-  border: 1px solid var(--loginPrimary);
+  border: 1px solid var(--bluePrimary);
 }
 
 .login-submit {
   font-size: 16px;
   padding: 8px;
-  background-color: var(--loginPrimary);
-  color: var(--landingPrimary);
+  background-color: var(--bluePrimary);
+  color: var(--white);
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -98,12 +94,12 @@
   font-size: 14px;
 }
 .landing-span:hover {
-  color: var(--loginSecondary);
+  color: var(--purpleSecondary);
   cursor: pointer;
 }
 
 .login-page p {
-  border-top: 1px solid var(--loginSecondary);
+  border-top: 1px solid var(--purpleSecondary);
   padding-top: 14px;
 }
 .login-page p span {
@@ -113,8 +109,8 @@
 /* Signup Page CSS */
 
 .signup-page {
-  background-color: var(--landingPrimary);
-  color: var(--loginPrimary);
+  background-color: var(--white);
+  color: var(--bluePrimary);
 }
 .signup-page h2 {
   text-align: center;
@@ -126,23 +122,23 @@
   padding-inline: 6rem;
 }
 .signup-input {
-  background-color: var(--loginSecondary);
-  color: var(--loginPrimary);
+  background-color: var(--purpleSecondary);
+  color: var(--bluePrimary);
 
   margin-bottom: 12px;
   font-size: 16px;
   padding: 8px;
 
-  border: 1px solid var(--landingPrimary);
+  border: 1px solid var(--white);
   border-radius: 6px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 .signup-input:focus {
   outline: none;
-  border: 1px solid var(--loginPrimary);
+  border: 1px solid var(--bluePrimary);
 }
 .signup-input::placeholder {
-  color: var(--landingPrimary);
+  color: var(--white);
   opacity: 0.6;
 }
 
@@ -156,11 +152,11 @@
   text-wrap: nowrap;
 }
 #signup-image-uploader input[type="file"]::-webkit-file-upload-button {
-  color: var(--loginPrimary);
-  background-color: var(--loginSecondary);
+  color: var(--bluePrimary);
+  background-color: var(--purpleSecondary);
   padding: 8px;
 
-  border: 1px solid var(--landingPrimary);
+  border: 1px solid var(--white);
   border-radius: 6px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -169,8 +165,8 @@
 .signup-submit {
   font-size: 16px;
   padding: 8px;
-  background-color: var(--loginPrimary);
-  color: var(--landingPrimary);
+  background-color: var(--bluePrimary);
+  color: var(--white);
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -181,7 +177,7 @@
 }
 
 .signup-page p {
-  border-top: 1px solid var(--loginSecondary);
+  border-top: 1px solid var(--purpleSecondary);
   padding-top: 14px;
 }
 .signup-page p span {
