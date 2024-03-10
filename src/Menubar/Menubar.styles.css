@@ -7,9 +7,8 @@
 }
 .menubar-header {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 18px;
+  gap: 12px;
   background-color: var(--bluePrimary);
   padding: 5px 0 5px 32px;
 }
@@ -30,7 +29,7 @@
 .menubar-options {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 
   margin-top: 18px;
 }
@@ -45,9 +44,9 @@
   color: var(--bluePrimary);
   border-block: 1px solid var(--bluePrimary);
 }
-.menubar-navlink:hover {
+.menubar-navlink.active {
   background-color: var(--purpleSecondary);
 }
 .menubar-navlink img {
-  height: 34px;
+  height: 28px;
 }

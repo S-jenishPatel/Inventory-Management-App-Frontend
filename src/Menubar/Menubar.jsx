@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import MenuLink from "./MenuLink";
 
 import "./Menubar.styles.css";
 
@@ -10,6 +10,29 @@ import profileIcon from "../assets/profile.svg";
 import reportIcon from "../assets/report a bug.svg";
 
 function Menubar() {
+  const menuLinks = [
+    {
+      title: "Dashboard",
+      url: "home",
+      image: dashboardIcon,
+    },
+    {
+      title: "Add Product",
+      url: "add-product",
+      image: addIcon,
+    },
+    {
+      title: "Profile",
+      url: "profile",
+      image: profileIcon,
+    },
+    {
+      title: "Report a bug",
+      url: "report",
+      image: reportIcon,
+    },
+  ];
+
   return (
     <div className="menubar">
       <div className="menubar-header">
@@ -17,22 +40,14 @@ function Menubar() {
         <h3>Stock Flow</h3>
       </div>
       <div className="menubar-options">
-        <NavLink to="home" className="menubar-navlink">
-          <img src={dashboardIcon} alt="" />
-          <p>Dashboard</p>
-        </NavLink>
-        <NavLink to="add-product" className="menubar-navlink">
-          <img src={addIcon} alt="" />
-          <p>Add Product</p>
-        </NavLink>
-        <NavLink to="profile" className="menubar-navlink">
-          <img src={profileIcon} alt="" />
-          <p>Profile</p>
-        </NavLink>
-        <NavLink to="report" className="menubar-navlink">
-          <img src={reportIcon} alt="" />
-          <p>Report a bug</p>
-        </NavLink>
+        {menuLinks.map((link, index) => (
+          <MenuLink
+            key={index}
+            title={link.title}
+            url={link.url}
+            image={link.image}
+          />
+        ))}
       </div>
     </div>
   );
