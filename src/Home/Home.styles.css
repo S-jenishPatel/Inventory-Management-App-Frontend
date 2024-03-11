@@ -1,0 +1,111 @@
+.dashboard {
+  padding-top: 14px;
+  padding-right: 32px;
+}
+.dashboard h3 {
+  font-size: 26px;
+  color: rgb(45, 45, 45);
+}
+
+/* Dashboard Header */
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0 16px 0;
+  border-bottom: 2px solid var(--bluePrimary);
+}
+.dashboard-header h2 {
+  margin: 0;
+  color: rgb(108, 108, 108);
+  /* color: var(--purpleSecondary); */
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.dashboard-header h2 > span {
+  color: var(--bluePrimary);
+  font-weight: bold;
+}
+
+.dashboard-header button {
+  background-color: var(--bluePrimary);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Inventory Stats */
+
+.inventory-stats {
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--bluePrimary);
+}
+.inventory-stats-container {
+  display: flex;
+  gap: 10px;
+}
+.inventory-stat {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 32px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s;
+}
+.inventory-stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 10px 4px rgba(0, 0, 0, 0.3);
+}
+
+.inventory-stat img {
+  height: 34px;
+}
+.inventory-stat div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+.inventory-stat div > p {
+  margin: 0;
+  margin-top: 4px;
+  color: var(--greyBackground);
+  font-size: 14px;
+}
+.inventory-stat div > span {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Inventory Items */
+
+.inventory-items-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.inventory-items-table thead > tr {
+  background-color: var(--bluePrimary);
+  color: var(--white);
+}
+.inventory-items-table th,
+.inventory-items-table td {
+  padding: 14px;
+  text-align: center;
+}
+.inventory-items-table tbody > tr {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--bluePrimary);
+}
+.inventory-items-table tbody > tr:hover {
+  background-color: var(--purpleSecondary);
+  cursor: pointer;
+}
+.inventory-items-table tbody > tr:focus-within {
+  background-color: #cebdff;
+}
