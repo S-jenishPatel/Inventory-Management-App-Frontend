@@ -104,6 +104,13 @@ function Home() {
           </tbody>
         </table>
       </div>
+
+      <div className="pagination-container">
+        <button>Prev</button>
+        <button>1</button>
+        <button>2</button>
+        <button>Next</button>
+      </div>
     </div>
   );
 }

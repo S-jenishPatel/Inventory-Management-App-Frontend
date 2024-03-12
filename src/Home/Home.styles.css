@@ -109,3 +109,22 @@
 .inventory-items-table tbody > tr:focus-within {
   background-color: #cebdff;
 }
+
+/* Pagination */
+.pagination-container {
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.pagination-container > button {
+  width: 40px;
+  background-color: var(--purpleSecondary);
+  color: var(--bluePrimary);
+  border: 1px solid var(--bluePrimary);
+  padding-block: 14px;
+}
+.pagination-container > button:first-child,
+.pagination-container > button:last-child {
+  width: 80px;
+}

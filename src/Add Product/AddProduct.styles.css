@@ -1,0 +1,78 @@
+.add-product {
+  padding: 22px 32px 0 0;
+}
+.add-product > fieldset {
+  margin: 0;
+  border: 2px solid var(--bluePrimary);
+  display: flex;
+  flex-direction: column;
+}
+.add-product > fieldset > legend {
+  font-size: 26px;
+  color: var(--bluePrimary);
+  font-weight: bold;
+}
+.add-product > fieldset label {
+  color: var(--bluePrimary);
+  margin-top: 18px;
+  text-wrap: nowrap;
+}
+
+#product-image-uploader > input {
+  margin-left: 20px;
+  color: var(--purpleSecondary);
+}
+#product-image-uploader input[type="file"]::-webkit-file-upload-button {
+  color: var(--bluePrimary);
+  background-color: var(--purpleSecondary);
+  padding: 8px;
+
+  border: 1px solid var(--white);
+  border-radius: 6px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.product-image {
+  height: 250px;
+  object-fit: contain;
+  /* margin-block: 10px; */
+}
+
+.add-product-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+.add-product-input-container input,
+.add-product-input-container textarea {
+  background-color: var(--purpleSecondary);
+  color: var(--bluePrimary);
+
+  font-size: 16px;
+  padding: 8px;
+  margin-top: 6px;
+
+  border: 1px solid var(--white);
+  border-radius: 6px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.add-product-input-container input:focus,
+.add-product-input-container textarea:focus {
+  outline: none;
+  border: 1px solid var(--bluePrimary);
+}
+
+.add-product > fieldset > button {
+  width: 45%;
+  font-size: 16px;
+  padding: 8px;
+  background-color: var(--bluePrimary);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-block: 24px;
+}
+.add-product > fieldset > button:focus {
+  transform: scale(0.99);
+}
