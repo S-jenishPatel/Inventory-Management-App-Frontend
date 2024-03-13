@@ -106,7 +106,7 @@ function Signup({ setShowLogin }) {
 
         {/* Landing error text */}
         {errorText ? (
-          <div id="landing-error">
+          <div id="api-error-div">
             <img src={warningImage} alt="Warning Image" />
             <span>{errorText}</span>
           </div>

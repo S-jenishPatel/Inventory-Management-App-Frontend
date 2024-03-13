@@ -17,3 +17,16 @@ body {
 button:hover {
   cursor: pointer;
 }
+
+/* Api error text in entire website */
+#api-error-div {
+  color: red;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+#api-error-div img {
+  height: 16px;
+  margin-inline: 4px;
+}

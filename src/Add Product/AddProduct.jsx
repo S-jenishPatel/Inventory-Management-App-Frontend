@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Axios from "axios";
+import toast from "react-hot-toast";
 
 import "./AddProduct.styles.css";
+import warningImage from "../assets/warning.png";
 
 function AddProduct() {
   const [name, setName] = useState("");
@@ -9,6 +12,68 @@ function AddProduct() {
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
+
+  const [categories, setCategories] = useState([]);
+
+  const [errorText, setErrorText] = useState("");
+
+  useEffect(() => {
+    Axios.get(import.meta.env.VITE_API_URL + "/category", {
+      withCredentials: true,
+    })
+      .then((res) => {
+        console.log(res);
+        setCategories(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  const handleAddProduct = async () => {
+    toast.remove();
+    const addProductToast = toast.loading("Adding Product ...", {
+      style: {
+        marginTop: "10px",
+        marginRight: "30px",
+        padding: "20px",
+      },
+    });
+
+    Axios.post(
+      import.meta.env.VITE_API_URL + "/product",
+      {
+        name,
+        price,
+        quantity,
+        category,
+        description,
+        image,
+      },
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Accept: "application/json",
+        },
+        withCredentials: true,
+      }
+    )
+      .then((res) => {
+        toast.success("Product Added Successfully", {
+          id: addProductToast,
+        });
+        console.log(res);
+      })
+      .catch((err) => {
+        toast.error("Failed to add Product", {
+          id: addProductToast,
+        });
+
+        setErrorText(err.response?.data || err.message);
+        console.log(err);
+      });
+  };
+
   return (
     <div className="add-product">
       <fieldset>
@@ -59,6 +124,9 @@ function AddProduct() {
           <datalist id="product-categories">
             <option value="Electronics" />
             <option value="Hardware" />
+            {categories?.map((category, index) => {
+              return <option key={index} value={category.name} />;
+            })}
           </datalist>
 
           <label htmlFor="product-price">Enter Product Price :</label>
@@ -97,7 +165,24 @@ function AddProduct() {
             }}
           />
         </div>
-        <button>Add Product</button>
+
+        {/* Landing error text */}
+        {errorText ? (
+          <div id="api-error-div">
+            <img src={warningImage} alt="Warning Image" />
+            <span>{errorText}</span>
+          </div>
+        ) : null}
+
+        <button
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            handleAddProduct();
+          }}
+        >
+          Add Product
+        </button>
       </fieldset>
     </div>
   );

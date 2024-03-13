@@ -39,6 +39,15 @@
   padding: 20px 40px 0;
 }
 
+.landing-span {
+  width: fit-content;
+  font-size: 14px;
+}
+.landing-span:hover {
+  color: var(--purpleSecondary);
+  cursor: pointer;
+}
+
 /* Login Page CSS */
 
 .login-page {
@@ -87,15 +96,6 @@
 }
 .login-submit:focus {
   transform: scale(0.99);
-}
-
-.landing-span {
-  width: fit-content;
-  font-size: 14px;
-}
-.landing-span:hover {
-  color: var(--purpleSecondary);
-  cursor: pointer;
 }
 
 .login-page p {
@@ -182,17 +182,4 @@
 }
 .signup-page p span {
   font-style: italic;
-}
-
-/* Landing error text in both login and signup */
-#landing-error {
-  color: red;
-  font-size: 14px;
-  display: flex;
-  flex-direction: row;
-  padding: 0;
-}
-#landing-error img {
-  height: 16px;
-  margin-inline: 4px;
 }
