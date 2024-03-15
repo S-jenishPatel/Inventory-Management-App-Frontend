@@ -1,5 +1,6 @@
 import React from "react";
 import InventoryStatCard from "./InventoryStatCard";
+import toast from "react-hot-toast";
 
 import "./Home.styles.css";
 
@@ -7,15 +8,58 @@ import shoppingCart from "../assets/shopping-cart.svg";
 import dollarCoin from "../assets/dollar-coin.svg";
 import shoppingCartClose from "../assets/shopping-cart-close.svg";
 import categories from "../assets/categories.svg";
+import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    toast.remove();
+    const logoutToast = toast.loading("Logging out ...", {
+      style: {
+        marginTop: "10px",
+        marginRight: "30px",
+        padding: "20px",
+      },
+    });
+
+    Axios.patch(
+      import.meta.env.VITE_API_URL + "/user/logout",
+      {},
+      { withCredentials: true }
+    )
+      .then((res) => {
+        toast.success("Logged out Successfully", {
+          id: logoutToast,
+        });
+
+        console.log(res);
+        navigate("/");
+      })
+      .catch((err) => {
+        toast.success("Log out Failed", {
+          id: logoutToast,
+        });
+
+        console.log(err);
+      });
+  };
+
   return (
     <div className="dashboard">
       <div className="dashboard-header">
         <h2>
           Welcome, <span>Zino</span>
         </h2>
-        <button>Logout</button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            handleLogout();
+          }}
+        >
+          Logout
+        </button>
       </div>
       <div className="inventory-stats">
         <h3>Inventory Stats</h3>

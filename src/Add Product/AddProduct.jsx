@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 import "./AddProduct.styles.css";
 import warningImage from "../assets/warning.png";
@@ -16,6 +17,8 @@ function AddProduct() {
   const [categories, setCategories] = useState([]);
 
   const [errorText, setErrorText] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     Axios.get(import.meta.env.VITE_API_URL + "/category", {
@@ -62,7 +65,9 @@ function AddProduct() {
         toast.success("Product Added Successfully", {
           id: addProductToast,
         });
+
         console.log(res);
+        navigate("/app/home");
       })
       .catch((err) => {
         toast.error("Failed to add Product", {

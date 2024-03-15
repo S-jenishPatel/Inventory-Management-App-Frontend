@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Axios from "axios";
 import warningImage from "../assets/warning.png";
@@ -7,6 +8,8 @@ function Login({ setShowLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorText, setErrorText] = useState("");
+
+  const navigate = useNavigate();
 
   const login = async () => {
     toast.remove();
@@ -18,16 +21,22 @@ function Login({ setShowLogin }) {
       },
     });
 
-    Axios.patch(import.meta.env.VITE_API_URL + "/user/login", {
-      username,
-      email: username,
-      password,
-    })
+    Axios.patch(
+      import.meta.env.VITE_API_URL + "/user/login",
+      {
+        username,
+        email: username,
+        password,
+      },
+      { withCredentials: true }
+    )
       .then((res) => {
         toast.success("Logged in Successfully", {
           id: loginToast,
         });
         console.log(res);
+
+        navigate("/app/home");
       })
       .catch((err) => {
         toast.error("Log in Failed", {
