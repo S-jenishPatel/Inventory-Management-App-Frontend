@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import InventoryStatCard from "./InventoryStatCard";
-import toast from "react-hot-toast";
+import { UserContext } from "../main";
+import Header from "../Header/Header";
 
 import "./Home.styles.css";
 
@@ -9,82 +11,94 @@ import dollarCoin from "../assets/dollar-coin.svg";
 import shoppingCartClose from "../assets/shopping-cart-close.svg";
 import categories from "../assets/categories.svg";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const [products, setProducts] = useState([]);
+  const { user, setUser } = useContext(UserContext);
+  const [inventoryStats, setInventoryStats] = useState({
+    totalProducts: 0,
+    storeValue: 0,
+    outOfStock: 0,
+    totalCategories: 0,
+  });
+
   const navigate = useNavigate();
 
-  const handleLogout = async () => {
-    toast.remove();
-    const logoutToast = toast.loading("Logging out ...", {
-      style: {
-        marginTop: "10px",
-        marginRight: "30px",
-        padding: "20px",
-      },
-    });
+  // get all products
+  useEffect(() => {
+    console.log(user);
 
-    Axios.patch(
-      import.meta.env.VITE_API_URL + "/user/logout",
-      {},
-      { withCredentials: true }
-    )
+    Axios.get(import.meta.env.VITE_API_URL + "/product", {
+      withCredentials: true,
+    })
       .then((res) => {
-        toast.success("Logged out Successfully", {
-          id: logoutToast,
-        });
-
         console.log(res);
-        navigate("/");
+        setProducts(res.data.data);
       })
       .catch((err) => {
-        toast.success("Log out Failed", {
-          id: logoutToast,
-        });
-
         console.log(err);
       });
-  };
+  }, []);
+
+  // update inventory stats
+  useEffect(() => {
+    let totalProducts = 0;
+    let storeValue = 0;
+    let outOfStock = 0;
+    let totalCategories = 0;
+
+    totalProducts = products.length;
+
+    var categories = [];
+    products.forEach((product) => {
+      storeValue += product.price * product.quantity;
+
+      if (product.quantity === 0) {
+        outOfStock += 1;
+      }
+
+      if (!categories.includes(product.categoryName)) {
+        categories.push(product.categoryName);
+      }
+    });
+
+    totalCategories = categories.length;
+
+    setInventoryStats({
+      totalProducts,
+      storeValue,
+      outOfStock,
+      totalCategories,
+    });
+  }, [products]);
 
   return (
     <div className="dashboard">
-      <div className="dashboard-header">
-        <h2>
-          Welcome, <span>Zino</span>
-        </h2>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            handleLogout();
-          }}
-        >
-          Logout
-        </button>
-      </div>
+      <Header />
       <div className="inventory-stats">
         <h3>Inventory Stats</h3>
         <div className="inventory-stats-container">
           <InventoryStatCard
             title="Total Products"
-            value="9"
+            value={inventoryStats.totalProducts}
             icon={shoppingCart}
             color="darkmagenta"
           />
           <InventoryStatCard
             title="Total Store Value"
-            value="$30000.00"
+            value={"$" + inventoryStats.storeValue.toFixed(2)}
             icon={dollarCoin}
             color="forestgreen"
           />
           <InventoryStatCard
             title="Out of Stock"
-            value="1"
+            value={inventoryStats.outOfStock}
             icon={shoppingCartClose}
             color="red"
           />
           <InventoryStatCard
             title="Total Categories"
-            value="2"
+            value={inventoryStats.totalCategories}
             icon={categories}
             color="dodgerblue"
           />
@@ -105,46 +119,24 @@ function Home() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>earphone</td>
-              <td>Electronics</td>
-              <td>$50</td>
-              <td>25</td>
-              <td>$1250</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>earphone</td>
-              <td>Electronics</td>
-              <td>$50</td>
-              <td>25</td>
-              <td>$1250</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>earphone</td>
-              <td>Electronics</td>
-              <td>$50</td>
-              <td>25</td>
-              <td>$1250</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>earphone</td>
-              <td>Electronics</td>
-              <td>$50</td>
-              <td>25</td>
-              <td>$1250</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>earphone</td>
-              <td>Electronics</td>
-              <td>$50</td>
-              <td>25</td>
-              <td>$1250</td>
-            </tr>
+            {products ? (
+              products.map((product, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{product.name}</td>
+                    <td>{product.categoryName}</td>
+                    <td>${product.price}</td>
+                    <td>{product.quantity}</td>
+                    <td>${product.price * product.quantity}</td>
+                  </tr>
+                );
+              })
+            ) : (
+              <tr>
+                <td colSpan="6">No Product Found!</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>

@@ -42,6 +42,8 @@ function Signup({ setShowLogin }) {
           id: signupToast,
         });
         console.log(res);
+
+        setShowLogin(true);
       })
       .catch((err) => {
         toast.error("Sign up Failed", {

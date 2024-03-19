@@ -127,8 +127,6 @@ function AddProduct() {
             list="product-categories"
           />
           <datalist id="product-categories">
-            <option value="Electronics" />
-            <option value="Hardware" />
             {categories?.map((category, index) => {
               return <option key={index} value={category.name} />;
             })}

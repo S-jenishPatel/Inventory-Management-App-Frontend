@@ -1,0 +1,33 @@
+/* Main Header */
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0 16px 0;
+  border-bottom: 2px solid var(--bluePrimary);
+}
+.main-header h2 {
+  margin: 0;
+  color: rgb(108, 108, 108);
+  /* color: var(--purpleSecondary); */
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.main-header h2 > span {
+  color: var(--bluePrimary);
+  font-weight: bold;
+}
+
+.main-header button {
+  background-color: var(--bluePrimary);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+.main-header button:focus {
+  transform: scale(0.99);
+}

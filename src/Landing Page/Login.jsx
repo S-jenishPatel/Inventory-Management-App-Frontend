@@ -1,13 +1,19 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { json, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Axios from "axios";
+
+import { UserContext } from "../main";
+
 import warningImage from "../assets/warning.png";
 
 function Login({ setShowLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   const [errorText, setErrorText] = useState("");
+
+  const { setUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -34,7 +40,9 @@ function Login({ setShowLogin }) {
         toast.success("Logged in Successfully", {
           id: loginToast,
         });
-        console.log(res);
+
+        setUser(res.data.data);
+        localStorage.setItem("user", JSON.stringify(res.data.data));
 
         navigate("/app/home");
       })
