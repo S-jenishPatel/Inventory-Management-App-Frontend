@@ -10,6 +10,7 @@ import Home from "./Home/Home.jsx";
 import AddProduct from "./Add Product/AddProduct.jsx";
 import Profile from "./Profile/Profile.jsx";
 import Report from "./Report/Report.jsx";
+import Product from "./Product/Product.jsx";
 
 const UserContext = createContext();
 
@@ -31,6 +32,7 @@ function Main() {
             <Route path="add-product" element={<AddProduct />} />
             <Route path="profile" element={<Profile />} />
             <Route path="report" element={<Report />} />
+            <Route path="product" element={<Product />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -122,7 +122,15 @@ function Home() {
             {products ? (
               products.map((product, index) => {
                 return (
-                  <tr key={index}>
+                  <tr
+                    key={index}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate("/app/product", {
+                        state: product,
+                      });
+                    }}
+                  >
                     <td>{index + 1}</td>
                     <td>{product.name}</td>
                     <td>{product.categoryName}</td>
