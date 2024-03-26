@@ -6,7 +6,6 @@ import { UserContext } from "../main";
 import warningImage from "../assets/warning.png";
 
 function EditProfile({ setEditProfile }) {
-  //   const [username, setUserName] = useState();
   const { user, setUser } = useContext(UserContext);
 
   const [email, setEmail] = useState(user.email);
@@ -40,6 +39,8 @@ function EditProfile({ setEditProfile }) {
 
         setUser(res.data.data);
         localStorage.setItem("user", JSON.stringify(res.data.data));
+
+        setEditProfile(false);
       })
       .catch((err) => {
         toast.error("Failed to Update Profile", {

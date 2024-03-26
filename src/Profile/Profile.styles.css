@@ -25,7 +25,6 @@
 }
 
 .profile-details {
-  /* background-color: aqua; */
   display: flex;
   flex-direction: column;
   gap: 20px;
