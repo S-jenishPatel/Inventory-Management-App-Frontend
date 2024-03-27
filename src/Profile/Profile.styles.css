@@ -42,9 +42,14 @@
   color: var(--bluePrimary);
   font-weight: bold;
 }
-.profile-details > button {
+
+.profile-details > div:last-child {
+  display: flex;
+  justify-content: space-around;
+}
+.profile-details > div:last-child > button {
   align-self: end;
-  width: 30%;
+  width: 40%;
   font-size: 16px;
   padding: 8px;
   background-color: var(--bluePrimary);
@@ -53,7 +58,7 @@
   border-radius: 6px;
   margin-top: 8px;
 }
-.profile-details > button:focus {
+.profile-details > div:last-child > button:focus {
   transform: scale(0.99);
 }
 
