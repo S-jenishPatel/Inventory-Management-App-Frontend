@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import InventoryStatCard from "./InventoryStatCard";
 import { UserContext } from "../main";
 import Header from "../Header/Header";
+import InventoryStatCard from "./InventoryStatCard";
+import InventoryItems from "./InventoryItems";
 
 import "./Home.styles.css";
 
@@ -14,6 +15,7 @@ import Axios from "axios";
 
 function Home() {
   const [products, setProducts] = useState([]);
+
   const { user, setUser } = useContext(UserContext);
   const [inventoryStats, setInventoryStats] = useState({
     totalProducts: 0,
@@ -22,7 +24,7 @@ function Home() {
     totalCategories: 0,
   });
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); //not used
 
   // get all products
   useEffect(() => {
@@ -105,56 +107,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="inventory-items">
-        <h3>Inventory Items</h3>
-        <table className="inventory-items-table">
-          <thead>
-            <tr>
-              <th style={{ width: "5%" }}>s/no</th>
-              <th style={{ width: "35%" }}>Name</th>
-              <th style={{ width: "20%" }}>Category</th>
-              <th>Price</th>
-              <th style={{ width: "10%" }}>Quantity</th>
-              <th>Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products ? (
-              products.map((product, index) => {
-                return (
-                  <tr
-                    key={index}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate("/app/product", {
-                        state: product,
-                      });
-                    }}
-                  >
-                    <td>{index + 1}</td>
-                    <td>{product.name}</td>
-                    <td>{product.categoryName}</td>
-                    <td>${product.price}</td>
-                    <td>{product.quantity}</td>
-                    <td>${product.price * product.quantity}</td>
-                  </tr>
-                );
-              })
-            ) : (
-              <tr>
-                <td colSpan="6">No Product Found!</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
-
-      <div className="pagination-container">
-        <button>Prev</button>
-        <button>1</button>
-        <button>2</button>
-        <button>Next</button>
-      </div>
+      <InventoryItems items={products} itemsPerPage={5} />
     </div>
   );
 }
