@@ -16,6 +16,7 @@ function Report() {
   const { user } = useContext(UserContext);
 
   const sendEmail = () => {
+    toast.remove();
     const reportToast = toast.loading("Sending message ...", {
       style: {
         marginTop: "10px",
@@ -48,11 +49,11 @@ function Report() {
 
           console.log(res);
         },
-        (error) => {
+        (err) => {
           toast.error("Failed to Send Message", {
             id: reportToast,
           });
-          console.log(error);
+          console.log(err);
         }
       );
   };

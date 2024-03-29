@@ -96,7 +96,7 @@ function Home() {
             title="Out of Stock"
             value={inventoryStats.outOfStock}
             icon={shoppingCartClose}
-            color="red"
+            color="crimson"
           />
           <InventoryStatCard
             title="Total Categories"

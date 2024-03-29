@@ -22,6 +22,16 @@ function Menubar() {
       image: addIcon,
     },
     {
+      title: "Purchase",
+      url: "purchase",
+      image: addIcon,
+    },
+    {
+      title: "Sale",
+      url: "sale",
+      image: addIcon,
+    },
+    {
       title: "Profile",
       url: "profile",
       image: profileIcon,

@@ -11,6 +11,8 @@ import AddProduct from "./Add Product/AddProduct.jsx";
 import Profile from "./Profile/Profile.jsx";
 import Report from "./Report/Report.jsx";
 import Product from "./Product/Product.jsx";
+import Purchase from "./Purchase/Purchase.jsx";
+import Sale from "./Sale/Sale.jsx";
 
 const UserContext = createContext();
 
@@ -33,6 +35,8 @@ function Main() {
             <Route path="profile" element={<Profile />} />
             <Route path="report" element={<Report />} />
             <Route path="product" element={<Product />} />
+            <Route path="purchase" element={<Purchase />} />
+            <Route path="sale" element={<Sale />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -89,17 +89,22 @@
   margin-bottom: 6px;
 }
 
-.product-details > button {
-  width: 100%;
+.product-button-div {
+  display: flex;
+  gap: 30px;
+  margin-top: 16px;
+}
+.product-button-div > button {
+  flex: 1;
   font-size: 16px;
-  padding: 8px;
+  padding-block: 8px;
   background-color: var(--bluePrimary);
   color: var(--white);
   border: none;
   border-radius: 6px;
-  margin-top: 16px;
+  text-align: center;
 }
-.product-details > button:focus {
+.product-button-div > button:focus {
   transform: scale(0.99);
 }
 
@@ -151,4 +156,22 @@
 }
 .edit-product > fieldset > button:focus {
   transform: scale(0.99);
+}
+
+/* Delete Product */
+
+.delete-product {
+  position: absolute;
+  top: 34vh;
+  left: 40vw;
+  padding: 40px 60px;
+  background-color: var(--white);
+  border: 1px solid var(--bluePrimary);
+  border-radius: 6px;
+  z-index: 5;
+  box-shadow: 0 0 0 200vh rgba(0, 0, 0, 0.4);
+}
+.delete-product > p {
+  font-size: 18px;
+  margin-bottom: 20px;
 }
