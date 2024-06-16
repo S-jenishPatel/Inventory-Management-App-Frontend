@@ -2,3 +2,27 @@
   padding-top: 14px;
   padding-right: 32px;
 }
+
+.purchase-container {
+  background-color: aqua;
+  /* padding: 14px 20px; */
+  margin-top: 20px;
+}
+
+.purchase-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.purchase-table thead > tr {
+  background-color: var(--bluePrimary);
+  color: var(--white);
+}
+.purchase-table th,
+.purchase-table td {
+  padding: 14px;
+  text-align: center;
+}
+.purchase-table tbody > tr {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--bluePrimary);
+}

@@ -35,8 +35,8 @@ function Main() {
             <Route path="profile" element={<Profile />} />
             <Route path="report" element={<Report />} />
             <Route path="product" element={<Product />} />
-            <Route path="purchase" element={<Purchase />} />
-            <Route path="sale" element={<Sale />} />
+            {/* <Route path="purchase" element={<Purchase />} />
+            <Route path="sale" element={<Sale />} /> */}
           </Route>
         </Routes>
       </BrowserRouter>

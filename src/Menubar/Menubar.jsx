@@ -21,16 +21,17 @@ function Menubar() {
       url: "add-product",
       image: addIcon,
     },
-    {
-      title: "Purchase",
-      url: "purchase",
-      image: addIcon,
-    },
-    {
-      title: "Sale",
-      url: "sale",
-      image: addIcon,
-    },
+    // Uncomment in menu.jsx file as well
+    // {
+    //   title: "Purchase",
+    //   url: "purchase",
+    //   image: addIcon,
+    // },
+    // {
+    //   title: "Sale",
+    //   url: "sale",
+    //   image: addIcon,
+    // },
     {
       title: "Profile",
       url: "profile",

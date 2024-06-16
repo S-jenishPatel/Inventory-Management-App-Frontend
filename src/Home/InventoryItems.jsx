@@ -31,7 +31,7 @@ function InventoryItems({ items, itemsPerPage }) {
         <table className="inventory-items-table">
           <thead>
             <tr>
-              <th style={{ width: "5%" }}>s/no</th>
+              <th style={{ width: "5%" }}>S/no</th>
               <th style={{ width: "35%" }}>Name</th>
               <th style={{ width: "20%" }}>Category</th>
               <th>Price</th>

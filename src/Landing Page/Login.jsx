@@ -97,7 +97,7 @@ function Login({ setShowLogin }) {
             login();
           }}
         />
-        <span className="landing-span">&nbsp; Forgot Passwsord?</span>
+        {/* <span className="landing-span">&nbsp; Forgot Passwsord?</span> */}
         <p>
           Don't have an account?{" "}
           <span
