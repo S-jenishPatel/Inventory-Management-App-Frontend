@@ -57,7 +57,7 @@ function Login({ setShowLogin }) {
 
   return (
     <div className="login-page">
-      <h2>Welcome</h2>
+      <h2>Login</h2>
       <div>
         <label htmlFor="username">Enter Username / Email :</label>
         <input
